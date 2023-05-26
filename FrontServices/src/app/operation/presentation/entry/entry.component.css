@@ -1,0 +1,12 @@
+.container {
+    height: 25vh !important;
+  }
+  
+  .mb-4 {
+    margin-bottom: 1rem !important; /* Ajuste o valor conforme necessário */
+  }
+
+  .btn {
+    display: block;
+    margin: 0 auto;
+  }
