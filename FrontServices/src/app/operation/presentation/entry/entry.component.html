@@ -1,0 +1,50 @@
+<div class="container d-flex h-100 justify-content-center align-items-center">
+    <form [formGroup]="entryForm" novalidate>
+        <div class="form-row align-items-center">
+            <div class="col-auto mb-4">
+                <label class="sr-only" for="inlineFormInputGroup">Insira o valor de lançamento:</label>
+                <div class="input-group mb-1 mt-1">
+                    <div class="input-group-prepend">
+                        <div class="input-group-text">Valor</div>
+                    </div>
+                    <input 
+                        currencyMask  
+                        type="text" 
+                        formControlName="entry" 
+                        [options] = "{ prefix: '', thousands: '.', decimal: ',' }"  
+                        class="form-control" 
+                        [ngClass]="{ 'is-invalid': submitted && fields['entry'].errors }" 
+                        id="inlineFormInputGroup" 
+                        placeholder="Digite um número"
+                        (input)="onEntryInputChange($event)"
+                        (click)="focusToEnd($event.target)">
+                </div>
+                <div *ngIf="submitted && fields['entry']?.errors" class="text-danger">
+                    <div *ngIf="fields?.['entry']?.errors?.['required']">Campo obrigatório</div>
+                </div>
+            </div>
+        </div>
+        <div class="form-row align-items-center justify-content-center mb-4">
+            <div class="col-auto">
+                <div class="form-group">
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" id="debitOption" name="paymentType" formControlName="paymentType" [value]="'debit'">
+                        <label class="form-check-label" for="debitOption">Débito(-)</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" id="creditOption" name="paymentType" formControlName="paymentType" [value]="'credit'">
+                        <label class="form-check-label" for="creditOption">Crédito(+)</label>
+                    </div>
+                </div>
+                <div *ngIf="submitted && !entryForm.get('paymentType')?.value" class="text-danger">
+                    Selecione Débito ou Crédito
+                </div>
+            </div>
+        </div>
+        <div class="form-row align-items-center justify-content-center">
+            <div class="col-auto">
+                <button type="submit" (click)="onClickSubmit()" class="btn btn-warning"><b>Efetuar lançamento</b></button>
+            </div>
+        </div>
+    </form>
+</div>
