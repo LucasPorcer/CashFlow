@@ -1,0 +1,5 @@
+*/node_modules
+*/ndd_modules
+*/.git
+.gitignore
+.vscode
