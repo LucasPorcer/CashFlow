@@ -24,7 +24,7 @@ namespace Cashflow.Api.Controllers
             _mapper = mapper;
         }
         /// <summary>
-        /// Método responsavel pela geração do balanço diário
+        /// Método responsável pela geração do balanço diário
         /// </summary>
         /// <returns></returns>
         [HttpGet(Name = "DailyBalance")]
@@ -50,7 +50,7 @@ namespace Cashflow.Api.Controllers
             }
         }
         /// <summary>
-        /// Método para lançamento das entradas de debito e credito
+        /// Método para lançamento das entradas de Débito e Crédito 
         /// </summary>
         /// <param name="command"></param>
         /// <returns></returns>
